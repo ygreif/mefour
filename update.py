@@ -21,9 +21,9 @@ def transform_url(story):
 stories = Story.objects.all()
 links = set([story.link_url for story in stories])
 
-all_feeds = dict(feeds.advice_feeds.items(
-) + feeds.middleeast.items() + feeds.feeds.items())
-for entry in feeds.scrape(feeds.extra):
+# all_feeds = dict(feeds.advice_feeds.items(
+#) + feeds.middleeast.items() + feeds.feeds.items())
+for entry in feeds.scrape(feeds.econ):
     try:
         if entry['link'] not in links:
             s = Story(title_text=entry['title'], full_text=entry['text'], teaser_text=entry[

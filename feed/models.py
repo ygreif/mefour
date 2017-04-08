@@ -46,7 +46,7 @@ class Story(models.Model):
         return re.sub("\[.*?\]", "", text)
 
     def Teaser(self):
-        if self.source in ['Commentary Magazine']:
+        if self.source in ['Commentary Magazine', 'Mainly Macro']:
             text = self.full_text.split('\n')[0]
         elif self.source in ['Ask Amy']:
             text = ' '.join(
@@ -56,7 +56,7 @@ class Story(models.Model):
             text = soup.p.get_text()
         elif self.source in ['Jeffrey Goldberg', 'David Frum']:
             return re.match('.*?[.!?]', self.full_text or self.teaser_text, re.DOTALL).group(0)
-        elif self.source in ['Juan Cole', 'World Affairs Journal']:
+        elif self.source in ['Juan Cole', 'World Affairs Journal', 'Noah Smith', 'Musings on Markets']:
             text = ' '.join(re.split('[.!?]', self.full_text)[0:2]) + '.'
         else:
             text = self.summary_text or self.teaser_text

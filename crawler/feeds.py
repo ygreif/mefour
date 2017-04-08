@@ -94,16 +94,19 @@ middleeast = {
 
 econ = {
     'Naked Capatilism': {'url': 'http://feeds.feedburner.com/NakedCapitalism'},
-    'Matt Levine': {'url': 'https://www.bloomberg.com/view/contributors/ARbTQlRLRjE/matthew-s-levine'},
-    'Oddball Stocks': {'url': 'http://feeds.feedburner.com/OddballStocks'},
+    'Matt Levine': {'url': 'https://www.bloomberg.com/view/rss/contributors/matt-levine.rss'},
     'Musings on Markets': {'url': 'http://aswathdamodaran.blogspot.nl/atom.xml'},
     'Mainly Macro': {'url': 'http://feeds.feedburner.com/MainlyMacro'},
     'Noah Smith': {'url': 'http://noahpinionblog.blogspot.com/feeds/posts/default'},
-    'Cafe Hayek': {'url': 'http://feeds.feedburner.com/CafeHayek'},
-    'Palul Krugman': {'url': 'https://krugman.blogs.nytimes.com/page/202/?rss=1'},
+    'Palul Krugman': {'url': 'http://www.nytimes.com/svc/collections/v1/publish/www.nytimes.com/column/paul-krugman/rss.xml'},
     'Buttonwood': {'url': 'http://www.economist.com/blogs/buttonwood/index.xml'},
     'Megan Mcardle': {'url': 'https://www.bloomberg.com/view/contributors/AQjVOcPejrY/megan-mcardle'},
+    'John Gordon Steele': {'url': 'https://www.commentarymagazine.com/author/jsgjohnsteelegordoncom/feed/'},
+    'Tyler Cowen': 'https://www.bloomberg.com/view/rss/contributors/tyler-cowen.rss',
 }
+
+#     'Cafe Hayek': {'url': 'http://feeds.feedburner.com/CafeHayek'},
+#     'Oddball Stocks': {'url': 'http://feeds.feedburner.com/OddballStocks'},
 
 bloomberg = {
     'Megan Mcardle': {'url': 'https://www.bloomberg.com/view/rss/contributors/megan-mcardle.rss'},
