@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from django.views.generic.base import BuildableListView
+#from django.views.generic.base import TemplateView
+from bakery.views import BuildableTemplateView
 
-
-from .models import Story
+from models import Story
 from collections import defaultdict
 from itertools import chain, izip_longest
 
@@ -13,8 +13,9 @@ from builtins import super
 # Create your views here.
 
 
-class IndexPageView(TemplateView):
+class IndexPageView(BuildableTemplateView):
     template_name = "feed/index.tmpl"
+    build_path = 'index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -24,17 +25,16 @@ class IndexPageView(TemplateView):
         # group by src
         grouped = defaultdict(list)
         for story in latest_stories:
-            if story.source in feeds.econ.keys():
+            if story.source in feeds.advice_feeds.keys():
                 grouped[story.source].append(story)
         # inerweave
         interweaved = [entry for entry in chain.from_iterable(
             izip_longest(*grouped.values()))]
         rows = [interweaved[i:i + 3]
-                for i in range(2, max(30, len(interweaved)) - 6, 3)]
-        print interweaved[0]
+                for i in range(2, min(27, len(interweaved)) - 6, 3)]
         context['lead'] = interweaved[0]
         context['rows'] = rows
-        context['title'] = 'AdviceBee'
+        context['title'] = 'AdviceBee - Daily Wisdom'
         return context
 
 

@@ -38,12 +38,16 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'feed',
-    'baker'
+    'bakery'
 )
 
 import os
 ROOT_PATH = os.path.dirname(__file__)
 BUILD_DIR = os.path.join(ROOT_PATH, 'build')
+
+BAKERY_VIEWS = ('feed.views.IndexPageView',)
+BAKERY_GZIP = False
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 MIDDLEWARE_CLASSES = (
