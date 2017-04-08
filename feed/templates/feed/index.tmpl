@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-96622470-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+{% load staticfiles %}
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title> {{ title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="Description" lang="en" content="all advice columns in one place">
+		<meta name="author" content="advicebee">
+		<meta name="robots" content="index, follow">
+
+		<!-- icons -->
+		<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+		<link rel="shortcut icon" href="{% static 'feed/favicon.ico' %}">
+                <link href="https://fonts.googleapis.com/css?family=Montserrat:800" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> 
+
+                
+		<!-- Bootstrap Core CSS file -->
+		<!--<link rel="stylesheet" href="assets/css/bootstrap.min.css">-->
+                <link rel="stylesheet" type="text/css" href="{% static 'feed/css/bootstrap.min.css' %}" />
+
+		<!-- Override CSS file - add your own CSS rules -->
+<!--		<link rel="stylesheet" href="assets/css/styles.css"> -->
+                <link rel="stylesheet" type="text/css" href="{% static 'feed/css/styles.css' %}" />
+		<!-- Conditional comment containing JS files for IE6 - 8 -->
+		<!--[if lt IE 9]>
+                    <script src="{% static 'feed/js/html5.js' %}" />
+                    <script src="{% static 'feed/js/respond.min.js.js' %}" />
+		<![endif]-->
+	</head>
+	<body>
+
+		<!-- Navigation -->
+	    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+			<div class="container-fluid">
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">AdviceBee</a>
+				</div>
+				<!-- /.navbar-header -->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="#">About</a></li>
+						<li><a href="contact@advicebee.com">Contact</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<!-- /.navbar -->
+
+		<!-- Page Content -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="page-header">
+						<h1>{{ title }}</h1>
+					</div>
+				</div>
+			</div>
+			<!-- /.row -->
+
+
+                        <div class="row margin-b-2">
+			  <div class="col-sm-12 col-lg-8">
+                            <a href="{{ lead.link_url }}" target="_blank">
+			      <img class="img-responsive thumbnail" src="{{ lead.ImgUrl }}" alt="">
+                            </a>
+                          </div>
+                          <div class="col-sm-12 col-lg-4">
+			    <div class="caption">
+			      <h1><a href="{{ lead.link_url }}" target="_blank" class="lead-title">{{ lead.Title }}</a></h1>
+                              <p class="source">{{ lead.source }}</p>
+			      <p class="teaser">{{ lead.Teaser }}</p>
+			    </div>
+			  </div>
+			</div>
+
+                        {% for row in rows %}
+			<div class="row margin-b-2">
+                          {% for entry in row %}
+			  <div class="col-lg-4">
+                            <div class="row">
+                              <div class="col-sm-4 col-lg-12">
+                                <a class="img-link" href="{{ entry.link_url }}" target="_blank">
+			          <img class="img-responsive thumbnail" src="{{ entry.ImgUrl }}">
+                                </a>
+                              </div>
+                              <div class="col-sm-8 col-lg-12">
+			        <div class="caption">
+				  <h2><a href="{{ entry.link_url }}" target="_blank" class="story-title">{{ entry.Title|striptags }}</a></h2>
+                                  <p class="source"> {{ entry.source }} <p class="source">{{ entry.pub_date | date }} </p>
+				  <p class="teaser">{{ entry.Teaser }}</p>
+                                </div>
+			      </div>
+                            </div>
+			  </div>
+                          {% endfor %}
+			</div>
+                        {% endfor %}
+			<!-- /.row -->
+
+			<hr>
+			<footer class="margin-tb-3">
+				<div class="row">
+					<div class="col-lg-12">
+						<p>Copyright NA</p>
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!-- /.container-fluid -->
+
+		<!-- scripts -->
+                <script src="{% static 'feed/js/jquery-1.11.2.min.js' %}" />
+                <script src="{% static 'feed/js/bootstrap.min.js' %}" />
+  </body>
+</html>
+
