@@ -25,7 +25,7 @@ SECRET_KEY = '369$=3+=lio=e(__0wr@l@p=%qigi(fd_ijb@=077n_c&$%ll='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ec2-54-218-74-151.us-west-2.compute.amazonaws.com', 'www.advicebee.com', 'advicebee.com']
 
 
 # Application definition
