@@ -34,7 +34,8 @@ class IndexPageView(BuildableTemplateView):
                 for i in range(2, min(27, len(interweaved)) - 6, 3)]
         context['lead'] = interweaved[0]
         context['rows'] = rows
-        context['title'] = 'AdviceBee - Daily Wisdom'
+        context['site'] = 'AdviceBee'
+        context['tagline'] = 'My favorite advice columns, updated daily'
         return context
 
 
