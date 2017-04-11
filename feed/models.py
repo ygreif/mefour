@@ -31,6 +31,9 @@ class Story(models.Model):
         else:
             return HTMLParser().unescape(re.sub("\[.*?\]", "", self.title_text))
 
+    def mixpanelid(self):
+        return re.sub('[^A-z-:_]', '', ''.join(self.Title()))
+
     def clean_teaser(self, text):
         for regex in ['(.*?)(read.{1,2}more)', '(.*?)the post']:
             match = re.match(regex, text, re.IGNORECASE | re.DOTALL)

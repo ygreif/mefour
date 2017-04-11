@@ -56,11 +56,15 @@ class RSSEntry(collections.OrderedDict):
         else:
             super(RSSEntry, self).__setattr__(name, value)
 
+miss_manners = {
+    'Advice Godess': {'url': 'http://www.freeweekly.com/category/advice/advice-goddess/feed/'},
+}
+
 advice_feeds = {
     'Ask Amy': {'url': 'http://amydickinson.com/rss'},
     'Ask Polly': {'url': 'http://feeds.feedburner.com/nymag/askpolly'},
     'Carolyn Hax': {'url': 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax'},
-    'Amy Alkon': {'url': 'http://www.ocregister.com/common/rss/rss.php?catID=18815'},
+    'Miss Manners': {'url': 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/miss-manners'},
     'Ask a Manager': {'url': 'http://www.askamanager.org/feed'}
 }
 #     'Bad Advice': {'url': 'http://thatbadadvice.tumblr.com/rss'},
@@ -238,6 +242,9 @@ def clean(entry):
             entry['published'] = parser.parse(entry['published'])
         elif 'pubDate' in entry:
             entry['published'] = parser.parse(entry['pubDate'])
+        elif re.search('\d\d\d\d.\d\d.\d\d', entry['link']):
+            entry['published'] = parser.parse(
+                re.search('\d\d\d\d.\d\d.\d\d', entry['link']).group())
         else:
             entry['published'] = datetime.datetime.now()
         entry['author'] = re.sub('[By]y', '', entry['author']).strip()
@@ -272,5 +279,6 @@ def scrape(feeds):
         return list(executor.map(clean, entries))
 
 if __name__ == '__main__':
-    entries = scrape(advice_feeds)
-    print entries
+    entries = scrape(miss_manners)
+    for entry in entries:
+        print entry['link'], entry['published']
