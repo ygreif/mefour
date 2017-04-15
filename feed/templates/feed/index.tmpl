@@ -96,7 +96,7 @@ mixpanel.init("b20f51bf9463ff8b4b1623d45803168c");</script><!-- end Mixpanel -->
 
                         <div class="row margin-b-2">
 			  <div class="col-sm-12 col-lg-8">
-                            <a href="{{ lead.link_url }}" id="{{ lead.mixpanelid }}" target="_blank">
+                            <a href="{{ lead.link_url }}" id="{{ lead.mixpanelid }}-img" target="_blank">
 			      <img class="img-responsive thumbnail" src="{{ lead.ImgUrl }}" alt="">
                             </a>
                           </div>
@@ -109,7 +109,8 @@ mixpanel.init("b20f51bf9463ff8b4b1623d45803168c");</script><!-- end Mixpanel -->
 			  </div>
 			</div>
                         <script type="text/javascript">
-                            mixpanel.track_links("#{{ lead.mixpanelid }}", "{{ lead.Title|striptags }}");
+                          mixpanel.track_links("#{{ lead.mixpanelid }}", "{{ lead.Title|striptags }}");
+                          mixpanel.track_links("#{{ lead.mixpanelid }}-img", "{{ lead.Title|striptags }}");
                         </script>
 
 
@@ -119,7 +120,7 @@ mixpanel.init("b20f51bf9463ff8b4b1623d45803168c");</script><!-- end Mixpanel -->
 			  <div class="col-lg-4">
                             <div class="row">
                               <div class="col-sm-4 col-lg-12">
-                                <a class="img-link" href="{{ entry.link_url }}" id="{{ entry.mixpanelid }}" target="_blank">
+                                <a class="img-link" href="{{ entry.link_url }}" id="{{ entry.mixpanelid }}-img" target="_blank">
 			          <img class="img-responsive thumbnail" src="{{ entry.ImgUrl }}">
                                 </a>
                               </div>
@@ -134,6 +135,7 @@ mixpanel.init("b20f51bf9463ff8b4b1623d45803168c");</script><!-- end Mixpanel -->
 			  </div>
                           <script type="text/javascript">
                             mixpanel.track_links("#{{ entry.mixpanelid }}", "{{ entry.Title|striptags }}");
+                            mixpanel.track_links("#{{ entry.mixpanelid }}-img", "{{ entry.Title|striptags }}");
                           </script>
 
                           
