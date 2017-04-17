@@ -65,12 +65,13 @@ advice_feeds = {
     'Ask Polly': {'url': 'http://feeds.feedburner.com/nymag/askpolly'},
     'Carolyn Hax': {'url': 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax'},
     'Miss Manners': {'url': 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/miss-manners'},
-    'Ask a Manager': {'url': 'http://www.askamanager.org/feed'}
+    'Ask a Manager': {'url': 'http://www.askamanager.org/feed'},
+    'The Last Honest Guy': {'url': 'http://feeds.feedburner.com/thelasthonestguy'}
 }
 #     'Bad Advice': {'url': 'http://thatbadadvice.tumblr.com/rss'},
 
 extra = {
-    'Commentary Magazine': {'url': 'https://www.commentarymagazine.com/feed/'},
+    'The Last Honest Guy': {'url': 'http://feeds.feedburner.com/thelasthonestguy'}
 }
 
 middleeast = {
