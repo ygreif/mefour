@@ -109,8 +109,8 @@ mixpanel.init("b20f51bf9463ff8b4b1623d45803168c");</script><!-- end Mixpanel -->
 			  </div>
 			</div>
                         <script type="text/javascript">
-                          mixpanel.track_links("#{{ lead.mixpanelid }}", "{{ lead.Title|striptags }}");
-                          mixpanel.track_links("#{{ lead.mixpanelid }}-img", "{{ lead.Title|striptags }}");
+                          mixpanel.track_links("#{{ lead.mixpanelid }}", "link", {'pos': 0,  'title': '{{ lead.Title|striptags }}', 'source': '{{ lead.source }}', 'type': 'title'});
+                          mixpanel.track_links("#{{ lead.mixpanelid }}-img", "link", {'pos': 0,  'title': '{{ lead.Title|striptags }}', 'source': '{{ lead.source }}', 'type': 'img'});
                         </script>
 
 
@@ -134,8 +134,8 @@ mixpanel.init("b20f51bf9463ff8b4b1623d45803168c");</script><!-- end Mixpanel -->
                             </div>
 			  </div>
                           <script type="text/javascript">
-                            mixpanel.track_links("#{{ entry.mixpanelid }}", "{{ entry.Title|striptags }}");
-                            mixpanel.track_links("#{{ entry.mixpanelid }}-img", "{{ entry.Title|striptags }}");
+                            mixpanel.track_links("#{{ entry.mixpanelid }}", "link", {'pos': {{ forloop.counter }},  'title': '{{ entry.Title|striptags }}', 'source': '{{ entry.source }}', 'type': 'title'});
+                            mixpanel.track_links("#{{ entry.mixpanelid }}-img", "link", {'pos': {{ forloop.counter }},  'title': '{{ entry.Title|striptags }}', 'source': '{{ entry.source }}', 'type': 'img'});
                           </script>
 
                           
