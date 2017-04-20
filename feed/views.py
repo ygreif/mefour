@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-#from django.views.generic.base import TemplateView
+# from django.views.generic.base import TemplateView
 from bakery.views import BuildableTemplateView
 
 from models import Story
 from collections import defaultdict
+from collections import OrderedDict
 from itertools import chain, izip_longest
 
 from crawler import feeds
@@ -23,9 +24,11 @@ class IndexPageView(BuildableTemplateView):
         latest_stories = Story.objects.order_by('-pub_date')
 
         # group by src
-        grouped = defaultdict(list)
+        grouped = OrderedDict()
         for story in latest_stories:
             if story.source in feeds.advice_feeds.keys():
+                if story.source not in grouped:
+                    grouped[story.source] = []
                 grouped[story.source].append(story)
         # inerweave
         interweaved = [entry for entry in chain.from_iterable(
