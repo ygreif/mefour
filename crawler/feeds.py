@@ -61,9 +61,9 @@ miss_manners = {
 }
 
 advice_feeds = {
+    'Carolyn Hax': {'url': 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax'},
     'Ask Amy': {'url': 'http://amydickinson.com/rss'},
     'Ask Polly': {'url': 'http://feeds.feedburner.com/nymag/askpolly'},
-    'Carolyn Hax': {'url': 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/carolyn-hax'},
     'Miss Manners': {'url': 'http://feeds.washingtonpost.com/rss/linksets/lifestyle/miss-manners'},
     'Ask a Manager': {'url': 'http://www.askamanager.org/feed'},
     'The Last Honest Guy': {'url': 'http://feeds.feedburner.com/thelasthonestguy'}
